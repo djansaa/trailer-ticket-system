@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrailerTicketSystem", "TrailerTicketSystem\TrailerTicketSystem.csproj", "{FCBD06D0-0D2D-4F7F-8A0D-ED64D7A0E96A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCBD06D0-0D2D-4F7F-8A0D-ED64D7A0E96A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBD06D0-0D2D-4F7F-8A0D-ED64D7A0E96A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBD06D0-0D2D-4F7F-8A0D-ED64D7A0E96A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBD06D0-0D2D-4F7F-8A0D-ED64D7A0E96A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08CCB566-01D9-452C-9075-82A7A12EC4CC}
+	EndGlobalSection
+EndGlobal
