@@ -1,7 +1,9 @@
-﻿namespace TrailerTicketSystem.Repositories
+﻿using TrailerTicketSystem.Models;
+
+namespace TrailerTicketSystem.Repositories
 {
     public interface ITrailerRepository
     {
-        Task<List<Data.Trailer>> GetAllAsync();
+        Task<IReadOnlyList<Trailer>> GetAllAsync(CancellationToken ct);
     }
 }

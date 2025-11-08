@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TrailerTicketSystem.Data;
+using TrailerTicketSystem.Models;
 
 namespace TrailerTicketSystem.Repositories
 {
@@ -12,14 +13,14 @@ namespace TrailerTicketSystem.Repositories
             _cf = cf;
         }
 
-        public async Task<List<Trailer>> GetAllAsync()
+        public async Task<IReadOnlyList<Trailer>> GetAllAsync(CancellationToken ct = default)
         {
-            using (var db = await _cf.CreateDbContextAsync())
+            using (var db = await _cf.CreateDbContextAsync(ct))
             {
                 return await db.Trailers
                     .AsNoTracking()
                     .Include(t => t.State)
-                    .ToListAsync();
+                    .ToListAsync(ct);
             }
         }
     }
