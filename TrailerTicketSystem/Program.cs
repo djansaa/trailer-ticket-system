@@ -1,17 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using TrailerTicketSystem.Data;
 using TrailerTicketSystem.Repositories;
+using TrailerTicketSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
 // load connection string from user-secrets
 var cs = builder.Configuration["Db:ConnectionString"] ?? throw new InvalidOperationException("Missing Db:ConnectionString");
 
 builder.Services.AddDbContextFactory<AppDbContext>(o => o.UseNpgsql(cs));
+
 builder.Services.AddScoped<ITrailerRepository, TrailerRepository>();
+builder.Services.AddScoped<ITrailerService, TrailerService>();
 
 var app = builder.Build();
 
@@ -28,6 +32,10 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapStaticAssets();
 app.MapRazorPages()
