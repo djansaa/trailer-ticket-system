@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TrailerTicketSystem.Models;
 
 namespace TrailerTicketSystem.Data
 {
-    public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+    public sealed class AppDbContext : DbContext
     {
         public DbSet<State> States => Set<State>();
         public DbSet<Trailer> Trailers => Set<Trailer>();
         public DbSet<Ticket> Tickets => Set<Ticket>();
         public DbSet<AppUser> Users => Set<AppUser>();
 
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder b)
         {

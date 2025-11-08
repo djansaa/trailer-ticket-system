@@ -1,4 +1,4 @@
-﻿namespace TrailerTicketSystem.Data
+﻿namespace TrailerTicketSystem.Models
 {
     public sealed class State
     {
