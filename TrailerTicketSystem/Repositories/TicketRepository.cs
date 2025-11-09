@@ -1,26 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using TrailerTicketSystem.Data;
 using TrailerTicketSystem.Models;
 
 namespace TrailerTicketSystem.Repositories
 {
-    public class TrailerRepository : ITrailerRepository
+    public class TicketRepository : ITicketRepository
     {
         private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
-        public TrailerRepository(IDbContextFactory<AppDbContext> contextFactory)
+        public TicketRepository(IDbContextFactory<AppDbContext> contextFactory)
         {
             _contextFactory = contextFactory;
         }
 
-        public async Task<IReadOnlyList<Trailer>> GetAllAsync(CancellationToken ct = default)
+        public async Task<IReadOnlyList<Ticket>> GetAllAsync(CancellationToken ct = default)
         {
             using (var db = await _contextFactory.CreateDbContextAsync(ct))
             {
-                return await db.Trailers
+                return await db.Tickets
                     .AsNoTracking()
-                    .Include(t => t.State)
                     .ToListAsync(ct);
             }
         }
