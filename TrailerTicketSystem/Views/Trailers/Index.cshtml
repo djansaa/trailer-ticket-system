@@ -1,5 +1,28 @@
-﻿@{
+﻿@using TrailerTicketSystem.Dtos
+@model IReadOnlyList<TrailerDto>
+
+@{
     ViewData["Title"] = "Trailers";
 }
 
-<a>Hello there -> Trailers view</a>
+<h1>Trailers</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>License Plate</th>
+            <th>State</th>
+            <th>Tickets</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.LicensePlate</td>
+                <td>@t.StateId</td>
+            </tr>
+        }
+    </tbody>
+</table>
