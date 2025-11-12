@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using TrailerTicketSystem.Data;
 using TrailerTicketSystem.Models;
 

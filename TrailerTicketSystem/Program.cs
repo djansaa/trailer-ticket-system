@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TrailerTicketSystem.Data;
 using TrailerTicketSystem.Repositories;
-using TrailerTicketSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +14,6 @@ var cs = builder.Configuration["Db:ConnectionString"] ?? throw new InvalidOperat
 builder.Services.AddDbContextFactory<AppDbContext>(o => o.UseNpgsql(cs));
 
 builder.Services.AddScoped<ITrailerRepository, TrailerRepository>();
-builder.Services.AddScoped<ITrailerService, TrailerService>();
 
 var app = builder.Build();
 
