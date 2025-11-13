@@ -2,6 +2,6 @@
 
 namespace TrailerTicketSystem.Dtos
 {
-    public record TrailerDto (int Id, string LicensePlate, int StateId);
+    public record TrailerDtos (int Id, string LicensePlate, int StateId);
 
 }
