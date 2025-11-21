@@ -16,7 +16,7 @@ namespace TrailerTicketSystem.Controllers
         public async Task<IActionResult> Index(CancellationToken ct)
         {
             var results = await _trailerRepository.GetAllAsync(ct);
-            var model = results.Select(t => new TrailerDtos(t.Id, t.LicensePlate, t.StateId)).ToList();
+            IReadOnlyList<TrailerDto> model = results.Select(t => new TrailerDto(t.Id, t.LicensePlate, t.StateId)).ToList();
 
             return View(model);
         }
