@@ -44,7 +44,8 @@ namespace TrailerTicketSystem.Data
             {
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Name).HasMaxLength(64).IsRequired();
-                e.Property(x => x.Password).HasMaxLength(255).IsRequired();
+                e.Property(x => x.PasswordHash).HasMaxLength(255).IsRequired();
+                e.Property(x => x.Role).HasMaxLength(32).IsRequired();
             });
 
             // ===== ticket =====

@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
 
         public ICollection<Ticket> TicketsAuthored { get; set; } = new List<Ticket>();
         public ICollection<Ticket> TicketsRepaired { get; set; } = new List<Ticket>();
