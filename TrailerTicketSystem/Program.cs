@@ -16,6 +16,7 @@ builder.Services.AddDbContextFactory<AppDbContext>(o => o.UseNpgsql(cs));
 
 builder.Services.AddScoped<ITrailerRepository, TrailerRepository>();
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 
 // auth
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

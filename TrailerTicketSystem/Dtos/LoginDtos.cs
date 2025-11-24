@@ -1,4 +1,13 @@
-﻿namespace TrailerTicketSystem.Dtos
+using System.ComponentModel.DataAnnotations;
+
+namespace TrailerTicketSystem.Dtos
 {
-    public record LoginDto(string UserName, string Password);
+    public record LoginDto(
+        [property: Required]
+        [property: Display(Name = "User Name")]
+        string UserName,
+
+        [property: Required]
+        [property: DataType(DataType.Password)]
+        string Password);
 }
