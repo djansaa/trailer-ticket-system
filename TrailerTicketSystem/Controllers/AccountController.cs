@@ -1,8 +1,9 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TrailerTicketSystem.Dtos;
 using TrailerTicketSystem.Models;
 using TrailerTicketSystem.Repositories;
@@ -20,6 +21,7 @@ namespace TrailerTicketSystem.Controllers
             _hasher = hasher;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login(string? returnUrl = null)
         {
@@ -27,6 +29,7 @@ namespace TrailerTicketSystem.Controllers
             return View(new LoginDto(string.Empty, string.Empty));
         }
 
+        [AllowAnonymous]
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginDto dto, string? returnUrl = null)
         {
@@ -85,6 +88,7 @@ namespace TrailerTicketSystem.Controllers
             return RedirectToAction("Login");
         }
 
+        [AllowAnonymous]
         public IActionResult AccessDenied()
         {
             return View();

@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using TrailerTicketSystem.Data;
 using TrailerTicketSystem.Models;
@@ -32,6 +34,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(o =>
 {
+    // authenticated users only
+    o.FallbackPolicy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+
     o.AddPolicy("MechanicOnly", p => p.RequireRole("Mechanic"));
     o.AddPolicy("TechnicianOnly", p => p.RequireRole("Technician"));
     o.AddPolicy("AdminOnly", p => p.RequireRole("Admin"));
