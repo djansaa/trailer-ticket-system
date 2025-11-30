@@ -30,18 +30,14 @@
                             <a class="nav-link text-dark" asp-controller="Tickets" asp-action="Index">Tickets</a>
                         </li>
                     </ul>
+                    <!-- Logout -->
                     <div class="d-flex align-items-center ms-auto">
                         @if (User?.Identity?.IsAuthenticated ?? false)
                         {
                             <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                                 @Html.AntiForgeryToken()
-                                <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
                                 <button type="submit" class="btn btn-outline-danger btn-sm ms-2">Logout</button>
                             </form>
-                        }
-                        else
-                        {
-                            <a class="btn btn-outline-primary btn-sm ms-2" asp-controller="Account" asp-action="Login">Login</a>
                         }
                     </div>
                 </div>
