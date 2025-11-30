@@ -57,9 +57,9 @@ namespace TrailerTicketSystem.Controllers
 
             var claims = new List<Claim>
             {
-                new(ClaimTypes.Name, user.Name),
-                new(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new(ClaimTypes.Role, user.Role)
+                new(ClaimTypes.Name, user.Name), // display name
+                new(ClaimTypes.NameIdentifier, user.Id.ToString()), // unique identifier
+                new(ClaimTypes.Role, user.Role) // user role
             };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -67,6 +67,7 @@ namespace TrailerTicketSystem.Controllers
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
+            // returnUrl is originally from the query string, first user have to login and then redirect to the original url he requested
             if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
