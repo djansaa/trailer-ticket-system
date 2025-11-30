@@ -55,6 +55,7 @@ namespace TrailerTicketSystem.Controllers
                 return View(dto);
             }
 
+            // prepare authentication cookie
             var claims = new List<Claim>
             {
                 new(ClaimTypes.Name, user.Name), // display name
