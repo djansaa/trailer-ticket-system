@@ -29,6 +29,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.SlidingExpiration = true;
         o.ExpireTimeSpan = TimeSpan.FromHours(1);
         o.Cookie.Name = "TTSCookie";
+        o.Cookie.SameSite = SameSiteMode.Strict; // mitigate CSRF
+        o.Cookie.HttpOnly = true; // mitigate XSS
+        o.Cookie.SecurePolicy = CookieSecurePolicy.Always; // require HTTPS
     });
 
 builder.Services.AddAuthorization(o =>
