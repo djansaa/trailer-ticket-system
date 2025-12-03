@@ -38,9 +38,9 @@ builder.Services.AddAuthorization(o =>
         .RequireAuthenticatedUser()
         .Build();
 
-    o.AddPolicy("MechanicOnly", p => p.RequireRole("Mechanic"));
-    o.AddPolicy("TechnicianOnly", p => p.RequireRole("Technician"));
-    o.AddPolicy("AdminOnly", p => p.RequireRole("Admin"));
+    o.AddPolicy("MechanicOnly", p => p.RequireRole("mechanic"));
+    o.AddPolicy("TechnicianOnly", p => p.RequireRole("technician"));
+    o.AddPolicy("AdminOnly", p => p.RequireRole("admin"));
 });
 
 builder.Services.AddSingleton<IPasswordHasher<AppUser>, PasswordHasher<AppUser>>();
