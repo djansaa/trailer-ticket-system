@@ -15,6 +15,6 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         var requestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-        return View(model: requestId);
+        return View(requestId);
     }
 }

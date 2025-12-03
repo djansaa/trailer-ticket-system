@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TrailerTicketSystem.Dtos
 {
     public record LoginDto(
-        [Required, Display(Name = "User Name")]
+        [Required]
         string UserName,
 
         [Required, DataType(DataType.Password)]
